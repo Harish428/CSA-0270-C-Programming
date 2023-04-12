@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j, temp;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // sort the array in ascending order
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    // second smallest element is at index 1
+    printf("Second smallest element: %d\n", arr[1]);
+
+    // second largest element is at index n-2
+    printf("Second largest element: %d\n", arr[n-2]);
+
+    return 0;
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+struct employee {
+    int eno;
+    char ename[20];
+    float salary;
+};
+
+int main() {
+    int n, i, maxIndex;
+    float maxSalary = -1;
+
+    printf("Enter the number of employees: ");
+    scanf("%d", &n);
+
+    struct employee emp[n];
+
+    // Accept details of n employees
+    for (i = 0; i < n; i++) {
+        printf("Enter details of employee %d:\n", i+1);
+        printf("Employee number: ");
+        scanf("%d", &emp[i].eno);
+        printf("Employee name: ");
+        scanf("%s", emp[i].ename);
+        printf("Employee salary: ");
+        scanf("%f", &emp[i].salary);
+    }
+
+    // Find employee with highest salary
+    for (i = 0; i < n; i++) {
+        if (emp[i].salary > maxSalary) {
+            maxSalary = emp[i].salary;
+            maxIndex = i;
+        }
+    }
+
+    // Display details of employee with highest salary
+    printf("\nDetails of employee with highest salary:\n");
+    printf("Employee number: %d\n", emp[maxIndex].eno);
+    printf("Employee name: %s\n", emp[maxIndex].ename);
+    printf("Employee salary: %.2f\n", emp[maxIndex].salary);
+
+    return 0;
+}
